@@ -1,0 +1,53 @@
+SAMPLE INPUT 
+2
+6 3
+8 2 3 11 11 10
+5 12
+12 20 39 45 89
+SAMPLE OUTPUT 
+6
+60
+Napoleon choosed a city for Advertising his company's product. There are  streets in that city. Each day he travels one street. There are  buildings in a street which are located at points . Each building has some height(Say  meters). Napoleon stands at point . His height is . Now Napoleon starts communicating with the people of each building. He can communicate with people of a particular building only if he can see that building. If he succeed to communicate with any particular building then his boss gives him . i.e. if he communicates with  buildings in a day, then he will earn . Now Napoleon wants to know his maximum Earning for each day.
+Note: All the points are on Strainght Line and Napoleon is always standing at point 0.
+Input:
+First line of input contains an integer , denoting no of streets in the city.
+Details for each street is described in next two lines.
+First line contains two integers  and  denoting no of buildings in the Street and earning on communicating with a building.
+Second line contains  integers, denoting height of  building.
+C++ implementation:
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	long long num, n_building,earn,count=0,h_seen,m;
+	cin>>num;
+	for(int i=0;i<num;i++){
+		cin>>n_building;
+		cin>>earn;
+		long long arr[n_building];
+	for(int j=0;j<n_building;j++){
+		cin>>arr[j];
+	}
+	for(m=0;m<n_building;m++){
+		if(arr[m]>0.5){
+			h_seen = arr[m];
+			count=1;
+			break;
+		}
+	}
+
+	for(int i=m; i<n_building;i++){
+		if (arr[i]>h_seen){
+			h_seen = arr[i];
+			count++;
+		}
+	}
+	cout<<count*earn<<endl;
+
+
+	}	
+}
+
+
